@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Mortgage Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .calculator-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .calculator-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        .form-label {
+            font-weight: 500;
+        }
+        .btn-primary {
+            width: 100%;
+        }
+        .results-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            display: none; /* Initially hidden */
+        }
+        .results-title {
+            color: #343a40;
+            margin-bottom: 15px;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .result-item span:last-child {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1 class="calculator-title">Islamic Mortgage Calculator</h1>
+        <form id="mortgage-form">
+            <div class="mb-3">
+                <label for="principal" class="form-label">Principal Amount ($)</label>
+                <input type="number" class="form-control" id="principal" placeholder="e.g., 500000" required>
+            </div>
+            <div class="mb-3">
+                <label for="epr" class="form-label">Annual Effective Profit Rate (EPR) (%)</label>
+                <input type="number" step="0.01" class="form-control" id="epr" placeholder="e.g., 4.5" required>
+            </div>
+            <div class="mb-3">
+                <label for="term" class="form-label">Loan Term (Years)</label>
+                <input type="number" class="form-control" id="term" placeholder="e.g., 30" required>
+            </div>
+            <div class="mb-3">
+                <label for="paid" class="form-label">Payments Already Made (Months)</label>
+                <input type="number" class="form-control" id="paid" placeholder="e.g., 60" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+        <div id="results" class="results-container">
+            <h3 class="results-title">Calculation Results</h3>
+            <div class="result-item">
+                <span>Estimated Monthly Payment:</span>
+                <span id="monthly-payment"></span>
+            </div>
+            <div class="result-item">
+                <span>Outstanding Balance:</span>
+                <span id="outstanding-balance"></span>
+            </div>
+            <div class="result-item">
+                <span>Amount Paid Off from Principal:</span>
+                <span id="principal-paid"></span>
+            </div>
+            <hr>
+            <p class="text-muted small">Disclaimer: This is an estimate for informational purposes. Always refer to official bank statements.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
